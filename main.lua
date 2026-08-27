@@ -1,10 +1,10 @@
 --- @since 26.1.22
+--- @sync entry
 --- @class Options Plugin options
 --- @field linemodes table List of linemodes to cycle
 
 local DEFAULT_LINEMODES = { "size", "btime", "mtime", "owner", "permissions", "none" }
 
---- @sync entry
 local function entry(self, _)
 	self.linemode = (self.linemode + 1 % #self.linemodes)
 	ya.emit("linemode", { self.linemodes[self.linemode] })
