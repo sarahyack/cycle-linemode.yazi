@@ -6,7 +6,7 @@ local DEFAULT_LINEMODES = { "size", "btime", "mtime", "owner", "permissions", "n
 
 --- @sync entry
 local function entry(self, _)
-	self.linemode = (self.linemode + 1 % #self.linemodes)
+	self.linemode = self.linemode % #self.linemodes + 1
 	ya.emit("linemode", { self.linemodes[self.linemode] })
 end
 
